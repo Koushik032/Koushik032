@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+    int t;
+    cin >> t;
+
+    while(t--)
+    {
+        int n;
+        cin >> n;
+
+        vector<int>v;
+        for(int i=0;i<n;i++)
+        {
+            int a;
+            cin >> a;
+            v.push_back(a);
+        }
+        int x;
+        cin >> x;
+
+        map< ll, int>cnt;
+
+        for(auto u:v)cnt[u]++;
+
+        //for(auto u:cnt) cout << u.first << " " << u.second << endl; ;
+            cout << cnt[x] << endl;
+    }
+    
+    return 0;
+}
