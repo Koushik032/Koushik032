@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define max1 10000
+int main()
+{
+    ///Koushik Roy///
+    ll n;
+    cin>>n;
+    while(n--)
+    {
+        ll a,b;
+        cin>>a>>b;
+
+        if(a<=2 && b<=2)
+        {
+            cout<<"1 1"<<endl;
+        }
+        else if((a==2 || a==3) && (b==2 || b==3))
+        {
+            cout<<"2 2"<<endl;
+        }
+        else{
+            cout<<"1 1"<<endl;
+        }
+    }
+    return 0;
+}
