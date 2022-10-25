@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define max1 10000
+int main()
+{
+    ///Koushik Roy///
+    ll t;
+    cin>>t;
+
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        ll a[max1];
+        for(ll i=0; i<2*n; i++)
+        {
+            cin>>a[i];
+        }
+        for (ll i=0; i<2*n; i++)
+        {
+            ll j;
+            for (j=0; j<i; j++)
+                if (a[i] == a[j])
+                    break;
+            if (i == j)
+                cout << a[i] << " ";
+
+        }
+        cout<<endl;
+    }
+    return 0;
+}
