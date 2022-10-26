@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define max1 10000
+int main()
+{
+    ll n,flag=0;
+    while(cin>>n)
+    {
+        if(n==0)
+        {
+            break;
+        }
+        flag++;
+        vector<string>s;
+        for(ll i=0;i<n;i++)
+        {
+            string a;
+            cin>>a;
+            s.push_back(a);
+        }
+        reverse(s.begin(),s.end());
+        //for(auto u:s)cout<<u<<endl;
+
+        deque<string>dq;
+
+        for(ll i=0;i<n;i++)
+        {
+            if(n%2!=0)
+            {
+            if(i%2==0)
+            {
+                dq.push_front(s[i]);
+            }
+            else{
+                dq.push_back(s[i]);
+            }
+            }
+            else{
+               if(i%2==0)
+            {
+                dq.push_back(s[i]);
+            }
+            else{
+                dq.push_front(s[i]);
+            }
+            }
+        }
+        cout<<"SET "<<flag<<endl;
+        for(ll i=0;i<n;i++)
+        {
+            cout<<dq[i]<<endl;
+        }
+    }
+    return 0;
+}
