@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define max1 10000
+int main()
+{
+    set<char>s;
+    string st;
+    getline(cin,st);
+
+    for(ll i=0;i<st.size();i++)
+    {
+        s.insert(st[i]);
+    }
+    for(ll i=0;i<st.size();i++)
+    {
+        if(st[i]=='{' || st[i]=='}' || st[i]==',' || st[i]==' ')
+            {
+                s.erase(st[i]);
+
+            }
+    }
+    //for(auto u:s)cout<<u<<endl;
+    cout<<s.size()<<endl;
+    return 0;
+}
+
