@@ -1,0 +1,74 @@
+///Onek Kosto Level Pass Kora///
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define max1 10000
+#define pb push_back
+#define fi first
+#define se second
+int main()
+{
+        ///Koushik Roy///
+    ll t,flag=0,sum=0,sum1=0;
+    cin>>t;
+    vector<pair<ll,ll>>v;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        for(ll i=0;i<n;i++)
+        {
+            ll a,b;
+            cin>>a>>b;
+            v.pb({a,b});
+        }
+        //for(auto u:v)cout<<u.fi<<" "<<u.se<<endl;
+        for(ll i=0;i<n;i++)
+        {
+            if(v[i].fi>=v[i].se)
+            {
+                flag++;
+                if(i+1<n)
+                {
+                if(v[i].fi<=v[i+1].fi && v[i].se<=v[i+1].se)
+                {
+                    sum=abs(v[i].fi-v[i+1].fi);
+                    sum1=abs(v[i].se-v[i+1].se);
+                    if(sum>=sum1)
+                    {
+                        flag++;
+                    }
+                    else{
+                            flag=0;
+                        break;
+                    }
+
+                }
+                else{
+                    flag=0;
+                    break;
+                }
+                }
+                else{
+                    break;
+                }
+            }
+            else{
+                flag=0;
+                break;
+            }
+        }
+        if(flag==0)
+        {
+            cout<<"NO"<<endl;
+        }
+        else
+        {
+            cout<<"YES"<<endl;
+        }
+        //
+        flag=0;
+        v.clear();
+    }
+    return 0;
+}
