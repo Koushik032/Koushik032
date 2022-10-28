@@ -1,0 +1,67 @@
+///Onek Kosto packages Collecting///
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define max1 10000
+#define pb push_back
+int main()
+{
+    ///Koushik Roy///
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n,sum=0,sum1=0,flag=0;
+        cin>>n;
+        vector<pair<ll,ll>>p(1);
+        vector<char>v;
+
+        for(ll i=0; i<n; i++)
+        {
+            ll a,b;
+            cin>>a>>b;
+            p.pb({a,b});
+        }
+        sort(p.begin(),p.end());
+        //for(auto u:p)cout<<u.first<<" "<<u.second<<endl;
+        for(ll i=0; i<n; i++)
+        {
+            if(p[i].first<p[i+1].first)
+            {
+                sum=abs(p[i].first-p[i+1].first);
+                for(ll j=1; j<=sum; j++)
+                {
+                    v.pb('R');
+                }
+            }
+            if(p[i].second<p[i+1].second)
+            {
+                sum1=abs(p[i].second-p[i+1].second);
+                for(ll j=0; j<sum1; j++)
+                {
+                    v.pb('U');
+                }
+            }
+            else if(p[i].second>p[i+1].second)
+            {
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1)
+        {
+            cout<<"NO"<<endl;
+        }
+        else
+        {
+            cout<<"YES"<<endl;
+            for(auto u:v)cout<<u;
+            cout<<endl;
+        }
+        v.clear();
+    p.clear();
+    flag=0;
+    }
+
+    return 0;
+}
