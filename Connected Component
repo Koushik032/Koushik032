@@ -1,0 +1,74 @@
+///Joy Sri-Krisno///
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define max1 10000
+#define pb push_back
+#define fi first
+#define se second
+#define vst() sort(v.begin(),v.end())
+
+const ll N=10e6+10;
+vector<ll>graph[N];
+bool vis[N];
+
+void bfs(ll a){
+	queue<ll>q;
+	q.push(a);
+	vis[a]=true;
+
+	while(q.size()>0)
+	{
+		ll p=q.front();
+		//cout<<p<<endl;
+		q.pop();
+
+
+		for(ll i=0;i<graph[p].size();i++)
+		{
+			ll u=graph[p][i];
+			if(vis[u]==false){
+				q.push(u);
+				vis[u]=true;
+			}
+		}
+	}
+}
+int main()
+{
+		ll n,m;
+		cin>>n>>m;
+
+		for(ll i=0;i<m;i++)
+		{
+			ll v1,v2;
+			cin>>v1>>v2;
+			graph[v1].pb(v2);
+			graph[v2].pb(v1);
+		}
+
+		// for(ll i=0;i<n;i++)
+		// {
+		// 	for(ll j=0;j<graph[i].size();j++)
+		// 	{
+		// 		cout<<graph[i][j]<<" ";
+		// 	}
+		// 	cout<<endl;
+		// }
+
+		ll t;
+		cin>>t;
+		while(t--)
+			{
+				ll x,y;
+				cin>>x>>y;
+				bfs(x);
+				if(vis[y]){
+					cout<<"YES"<<endl;
+				}
+				else{
+					cout<<"NO"<<endl;
+				}
+			}
+	return 0;
+}
