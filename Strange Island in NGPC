@@ -1,0 +1,88 @@
+
+///   ***   ---   ||         In the name of VOGOBAN        |||   ---   ***   ///
+ 
+ 
+ 
+#include<bits/stdc++.h>
+using namespace std;
+ 
+ 
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef pair<int,int> pii;
+
+#define endl '\n'
+#define PB push_back
+#define F first
+#define S second
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+ 
+#define MOD 1000000007
+ 
+#define mem(a,b) memset(a, b, sizeof(a) )
+#define sqr(a) ((a) * (a))
+ 
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+ 
+ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
+ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
+ 
+ const ll mx = 1e4 + 123;
+ int a[mx];
+ int n, m, k;
+
+ bool check ( int value )
+ {
+    int precity = a[1] + value;
+    int cnt = 1;
+
+    for ( int i = 2; i <= m; i++ )
+    {
+        if ( abs(precity - a[i]) > value )
+        {
+            cnt++;
+            if ( cnt > k )return false;
+            precity = a[i] + value;
+        }
+    }
+    return true;
+ }
+
+int main()
+{
+    optimize();
+
+        int t;
+        cin >> t;
+
+        for ( int tc = 1; tc <= t; tc++ )
+        {
+            cin >> n >> m >> k;
+
+            for ( int i = 1; i <= m; i++ )cin >> a[i];
+
+            int l = 0, r = n;
+            int ans = n;
+
+            while ( l <= r )
+            {
+                int mid = ( l + r ) / 2;
+
+                if ( check(mid) )
+                {
+                    ans = min ( ans, mid );
+                    r = mid - 1;
+                }
+                else{
+                    l = mid + 1;
+                }
+            }
+
+            cout << "Case " << tc << ": " << ans << endl;
+        }
+
+    return 0;
+}
