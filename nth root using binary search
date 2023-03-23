@@ -1,0 +1,68 @@
+///   ***   ---   ||         In the name of VOGOBAN        |||   ---   ***   ///
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef double dl;
+
+#define endl '\n'
+#define PB push_back
+#define F first
+#define S second
+#define all(v) (v).begin(),(v).end()
+#define rall(v) (v).rbegin(),(v).rend()
+#define sz(x) (int)x.size()
+#define MOD 1000000007
+#define mem(a,b) memset(a, b, sizeof(a) )
+#define sqr(a) ((a) * (a))
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
+ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
+
+//const int mx = 123;
+//int a[mx];
+
+//double eqs = 1e - 6;
+double multiply( double mid, int n )
+{
+    double ans = 1;
+    for ( int i = 0; i < n; i++ )
+    {
+        ans *= mid;
+    }
+
+    return ans;
+}
+int main()
+{
+    optimize();
+        
+        double x;
+        cin >> x;
+
+        int n;
+        cin >> n;
+
+        double l = 1, r = x;
+
+        double eqs = 1e-6;
+
+        while ( r  - l > eqs )
+        {
+            double mid = ( l + r ) / 2;
+            if ( multiply( mid , n ) < x )
+            {
+                l = mid;
+            }
+            else{
+                r  = mid;
+            }
+        }
+        cout << l << endl;
+       return 0;
+}
